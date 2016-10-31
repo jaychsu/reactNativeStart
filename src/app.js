@@ -1,29 +1,28 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   Text,
   View
 } from 'react-native'
+import style from './style'
+
+import Header from './header'
+import Grid from './grid'
+import Footer from './footer'
 
 export default class App extends Component {
   render() {
     return (
       <View style={ style.container }>
-        <Text style={ style.content }>Hello World!</Text>
+        <View style={{
+          flex: 1,
+          justifyContent: 'space-between',
+          alignItems: 'stretch'
+        }}>
+          <Header />
+          <Grid />
+          <Footer />
+        </View>
       </View>
     )
   }
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#121212'
-  },
-  content: {
-    fontSize: 14,
-    color: '#fcfcfc'
-  }
-})

@@ -8,7 +8,7 @@ import {
 export default class App extends Component {
   render() {
     return (
-      <View style={ style.layout }>
+      <View style={ style.container }>
         <Text style={ style.content }>Hello World!</Text>
       </View>
     )
@@ -16,13 +16,14 @@ export default class App extends Component {
 }
 
 const style = StyleSheet.create({
-  layout: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#121212'
   },
   content: {
+    fontSize: 14,
     color: '#fcfcfc'
   }
 })

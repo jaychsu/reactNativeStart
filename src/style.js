@@ -1,10 +1,6 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#121212'
-  },
   content: {
     fontSize: 10,
     color: '#fcfcfc'
@@ -19,6 +15,14 @@ export default StyleSheet.create({
   },
   footer: {
     height: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
     backgroundColor: '#1a1a1a'
+  },
+  navigator: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 })

@@ -12,7 +12,10 @@ import Footer from './footer'
 export default class App extends Component {
   render() {
     return (
-      <View style={ style.container }>
+      <View style={{
+        flex: 1,
+        backgroundColor: '#121212'
+      }}>
         <View style={{
           flex: 1,
           justifyContent: 'space-between',

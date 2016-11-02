@@ -22,22 +22,27 @@ export default class Grid extends Component {
 
   render() {
     return (
-      <ListView
-        dataSource={ this.state.dataSource }
-        renderRow={ this._renderRow }
+      <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 10,
+        paddingBottom: 10
+      }}>
+        <ListView
+          dataSource={ this.state.dataSource }
+          renderRow={ this._renderRow }
 
-        initialListSize={ 21 }
-        pageSize={ 5 }
-        contentContainerStyle={{
-          justifyContent: 'space-around',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          alignItems: 'flex-start',
-
-          paddingLeft: 20,
-          paddingRight: 20
-        }}
-      />
+          initialListSize={ 20 }
+          pageSize={ 5 }
+          contentContainerStyle={{
+            justifyContent: 'flex-start',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'flex-start',
+          }}
+        />
+      </View>
     )
   }
 
@@ -50,7 +55,7 @@ export default class Grid extends Component {
           alignItems: 'center',
           paddingLeft: 10,
           paddingRight: 10,
-          paddingTop: 10,
+          paddingTop: 4,
           paddingBottom: 4
         }}>
           <Image style={{ width: 64, height: 64 }} source={{ uri: imgSrc }} />

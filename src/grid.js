@@ -6,9 +6,8 @@ import {
   ListView,
   TouchableHighlight
 } from 'react-native'
+import { getSrc, THUMB_URLS } from './asset/img-source'
 import style from './style'
-
-const THUMB_URLS = []
 
 export default class Grid extends Component {
   constructor() {
@@ -47,7 +46,6 @@ export default class Grid extends Component {
   }
 
   _renderRow(rowData: string, sectionID: number, rowID: number) {
-    let imgSrc = THUMB_URLS[rowID]
     return (
       <TouchableHighlight underlayColor="transparent">
         <View style={{

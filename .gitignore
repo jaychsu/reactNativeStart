@@ -40,4 +40,5 @@ buck-out/
 android/app/libs
 android/keystores/debug.keystore
 
-src/asset
+src/asset/*.tif
+src/asset/*.jpg

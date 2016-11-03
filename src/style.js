@@ -2,19 +2,19 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   content: {
-    fontSize: 10,
+    fontSize: 14,
     color: '#fcfcfc'
   },
   header: {
     paddingLeft: 10,
     paddingRight: 10,
-    height: 25,
+    height: 30,
     borderBottomWidth: 1,
     borderBottomColor: '#4d4b4a',
     backgroundColor: '#1a1a1a'
   },
   footer: {
-    height: 20,
+    height: 30,
     paddingLeft: 10,
     paddingRight: 10,
     backgroundColor: '#1a1a1a'

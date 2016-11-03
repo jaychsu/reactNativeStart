@@ -37,7 +37,7 @@ export default class Grid extends Component {
           dataSource={ this.state.dataSource }
           renderRow={ this._renderRow }
 
-          initialListSize={ 20 }
+          initialListSize={ 100 }
           pageSize={ 5 }
           contentContainerStyle={{
             justifyContent: 'flex-start',
@@ -96,12 +96,12 @@ export default class Grid extends Component {
 const cellStyle = StyleSheet.create({
   cell: {},
   cellPress: {
-    paddingLeft: 1,
-    paddingRight: 1,
-    paddingTop: 1,
-    paddingBottom: 1,
+    paddingLeft: 2,
+    paddingRight: 2,
+    paddingTop: 2,
+    paddingBottom: 2,
 
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: '#4281ca',
     borderRadius: 4
   },
@@ -111,8 +111,8 @@ const cellStyle = StyleSheet.create({
     borderRadius: 4
   },
   imgPress: {
-    width: 60,
-    height: 60,
+    width: 56,
+    height: 56,
     borderRadius: 2
   }
 })

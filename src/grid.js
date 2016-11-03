@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   Text,
   Image,
   View,
@@ -8,7 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native'
 import { getSrc, THUMB_URLS } from './asset/img-source'
-import style from './style'
+import style, { gridStyle } from './style'
 
 export default class Grid extends Component {
   constructor() {
@@ -37,8 +36,8 @@ export default class Grid extends Component {
           dataSource={ this.state.dataSource }
           renderRow={ this._renderRow }
 
-          initialListSize={ 100 }
-          pageSize={ 5 }
+          initialListSize={ 500 }
+          pageSize={ 100 }
           contentContainerStyle={{
             justifyContent: 'flex-start',
             flexDirection: 'row',
@@ -67,8 +66,8 @@ export default class Grid extends Component {
           paddingTop: 4,
           paddingBottom: 4
         }}>
-          <View style={ this.selectedRow[rowID] ? cellStyle.cellPress : cellStyle.cell }>
-            <Image style={ this.selectedRow[rowID] ? cellStyle.imgPress : cellStyle.img } source={ getSrc(rowID) } />
+          <View style={ this.selectedRow[rowID] ? gridStyle.cellPress : gridStyle.cell }>
+            <Image style={ this.selectedRow[rowID] ? gridStyle.imgPress : gridStyle.img } source={ getSrc(rowID) } />
           </View>
           <Text style={[
             style.content,
@@ -92,27 +91,3 @@ export default class Grid extends Component {
     })
   }
 }
-
-const cellStyle = StyleSheet.create({
-  cell: {},
-  cellPress: {
-    paddingLeft: 2,
-    paddingRight: 2,
-    paddingTop: 2,
-    paddingBottom: 2,
-
-    borderWidth: 2,
-    borderColor: '#4281ca',
-    borderRadius: 4
-  },
-  img: {
-    width: 64,
-    height: 64,
-    borderRadius: 4
-  },
-  imgPress: {
-    width: 56,
-    height: 56,
-    borderRadius: 2
-  }
-})

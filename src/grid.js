@@ -36,8 +36,8 @@ export default class Grid extends Component {
           dataSource={ this.state.dataSource }
           renderRow={ this._renderRow }
 
-          initialListSize={ 500 }
-          pageSize={ 100 }
+          initialListSize={ 200 }
+          pageSize={ 150 }
           contentContainerStyle={{
             justifyContent: 'flex-start',
             flexDirection: 'row',
@@ -67,7 +67,10 @@ export default class Grid extends Component {
           paddingBottom: 4
         }}>
           <View style={ this.selectedRow[rowID] ? gridStyle.cellPress : gridStyle.cell }>
-            <Image style={ this.selectedRow[rowID] ? gridStyle.imgPress : gridStyle.img } source={ getSrc(rowID) } />
+            <Image
+              style={ this.selectedRow[rowID] ? gridStyle.imgPress : gridStyle.img }
+              source={ getSrc(rowID) }
+            />
           </View>
           <Text style={[
             style.content,

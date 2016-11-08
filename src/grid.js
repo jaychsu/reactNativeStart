@@ -6,7 +6,7 @@ import {
   ListView,
   TouchableHighlight
 } from 'react-native'
-import { getSrc, THUMB_URLS } from './asset/img-source'
+import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
 export default class Grid extends Component {
@@ -69,7 +69,7 @@ export default class Grid extends Component {
           <View style={ this.selectedRow[rowID] ? gridStyle.cellPress : gridStyle.cell }>
             <Image
               style={ this.selectedRow[rowID] ? gridStyle.imgPress : gridStyle.img }
-              source={ getSrc(rowID) }
+              source={ ImgSource.getThumbSrc(rowID) }
             />
           </View>
           <Text style={[
@@ -82,7 +82,7 @@ export default class Grid extends Component {
   }
 
   _genRows(): Array<boolean> {
-    return THUMB_URLS.map((val, key) => {
+    return ImgSource.thumbs.map((val, key) => {
       return this.selectedRow[key]
     })
   }

@@ -6,28 +6,12 @@ import {
   ListView,
   TouchableHighlight
 } from 'react-native'
-import { BlurView, VibrancyView } from 'react-native-blur'
 import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
-const contentSource = new ImgSource(50)
+const coverSource = new ImgSource(10)
 
-let Overlay = (false)
-  ? (
-      <Image
-        style={ style.fullScreen }
-      >
-        <BlurView
-          blurType="dark"
-          blurAmount={ 5 }
-          style={ style.fullScreen }
-        >
-        </BlurView>
-      </Image>
-    )
-  : null
-
-export default class Grid extends Component {
+export default class CoverList extends Component {
   constructor() {
     super()
 
@@ -46,26 +30,21 @@ export default class Grid extends Component {
   render() {
     return (
       <View style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        height: 100
       }}>
         <ListView
           dataSource={ this.state.dataSource }
           renderRow={ this._renderRow }
+          horizontal={ true }
 
           initialListSize={ 300 }
           pageSize={ 200 }
           contentContainerStyle={{
             flexDirection: 'row',
-            flexWrap: 'wrap',
             justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            paddingTop: 10,
-            paddingBottom: 10
+            alignItems: 'flex-start'
           }}
         />
-        { Overlay }
       </View>
     )
   }
@@ -88,20 +67,20 @@ export default class Grid extends Component {
           <View style={ this.selectedRow[rowID] ? gridStyle.cellPress : gridStyle.cell }>
             <Image
               style={ this.selectedRow[rowID] ? gridStyle.imgPress : gridStyle.img }
-              source={ contentSource.getThumbSrc(rowID) }
+              source={ coverSource.getThumbSrc(rowID) }
             />
           </View>
           <Text style={[
             style.content,
             { paddingTop: 4 }
-          ]}>{ rowID }</Text>
+          ]}>{ 'Stack' + rowID }</Text>
         </View>
       </TouchableHighlight>
     )
   }
 
   _genRows(): Array<boolean> {
-    return contentSource.thumbs.map((val, key) => {
+    return coverSource.thumbs.map((val, key) => {
       return this.selectedRow[key]
     })
   }

@@ -6,6 +6,7 @@ import {
 import style from './style'
 
 import Header from './header'
+import CoverList from './cover-list'
 import Grid from './grid'
 import Footer from './footer'
 
@@ -22,6 +23,7 @@ export default class App extends Component {
           alignItems: 'stretch'
         }}>
           <Header />
+          <CoverList />
           <Grid />
           <Footer />
         </View>

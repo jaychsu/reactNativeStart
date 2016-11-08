@@ -10,6 +10,21 @@ import { BlurView, VibrancyView } from 'react-native-blur'
 import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
+let Overlay = (false)
+  ? (
+      <Image
+        style={ style.fullScreen }
+      >
+        <BlurView
+          blurType="dark"
+          blurAmount={ 5 }
+          style={ style.fullScreen }
+        >
+        </BlurView>
+      </Image>
+    )
+  : null
+
 export default class Grid extends Component {
   constructor() {
     super()
@@ -48,16 +63,7 @@ export default class Grid extends Component {
             paddingBottom: 10
           }}
         />
-        <Image
-          style={ style.fullScreen }
-        >
-          <BlurView
-            blurType="dark"
-            blurAmount={ 5 }
-            style={ style.fullScreen }
-          >
-          </BlurView>
-        </Image>
+        { Overlay }
       </View>
     )
   }

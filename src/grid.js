@@ -6,6 +6,7 @@ import {
   ListView,
   TouchableHighlight
 } from 'react-native'
+import { BlurView, VibrancyView } from 'react-native-blur'
 import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
@@ -47,6 +48,16 @@ export default class Grid extends Component {
             paddingBottom: 10
           }}
         />
+        <Image
+          style={ style.fullScreen }
+        >
+          <BlurView
+            blurType="dark"
+            blurAmount={ 5 }
+            style={ style.fullScreen }
+          >
+          </BlurView>
+        </Image>
       </View>
     )
   }

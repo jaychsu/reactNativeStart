@@ -36,8 +36,8 @@ export default class Grid extends Component {
           dataSource={ this.state.dataSource }
           renderRow={ this._renderRow }
 
-          initialListSize={ 200 }
-          pageSize={ 150 }
+          initialListSize={ 300 }
+          pageSize={ 200 }
           contentContainerStyle={{
             justifyContent: 'flex-start',
             flexDirection: 'row',

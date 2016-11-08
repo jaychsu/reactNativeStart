@@ -9,7 +9,7 @@ class ImgSource extends BaseSource {
 
     this.getThumbSrc = this.getThumbSrc.bind(this)
 
-    this.thumbsLength = 500
+    this.thumbsLength = 200
     this.thumbs = []
 
     for (let i = 0; i < this.thumbsLength; i++) {

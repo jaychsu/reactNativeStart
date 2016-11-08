@@ -10,6 +10,8 @@ import { BlurView, VibrancyView } from 'react-native-blur'
 import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
+const contentSource = new ImgSource(50)
+
 let Overlay = (false)
   ? (
       <Image
@@ -86,7 +88,7 @@ export default class Grid extends Component {
           <View style={ this.selectedRow[rowID] ? gridStyle.cellPress : gridStyle.cell }>
             <Image
               style={ this.selectedRow[rowID] ? gridStyle.imgPress : gridStyle.img }
-              source={ ImgSource.getThumbSrc(rowID) }
+              source={ contentSource.getThumbSrc(rowID) }
             />
           </View>
           <Text style={[
@@ -99,7 +101,7 @@ export default class Grid extends Component {
   }
 
   _genRows(): Array<boolean> {
-    return ImgSource.thumbs.map((val, key) => {
+    return contentSource.thumbs.map((val, key) => {
       return this.selectedRow[key]
     })
   }

@@ -6,26 +6,12 @@ import {
   ListView,
   TouchableHighlight
 } from 'react-native'
+import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter'
 import { BlurView, VibrancyView } from 'react-native-blur'
 import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
 const contentSource = new ImgSource(50)
-
-let Overlay = (false)
-  ? (
-      <Image
-        style={ style.fullScreen }
-      >
-        <BlurView
-          blurType="dark"
-          blurAmount={ 5 }
-          style={ style.fullScreen }
-        >
-        </BlurView>
-      </Image>
-    )
-  : null
 
 export default class Grid extends Component {
   constructor() {
@@ -41,6 +27,10 @@ export default class Grid extends Component {
     this.state = {
       dataSource: ds.cloneWithRows(this._genRows())
     }
+
+    RCTDeviceEventEmitter.addListener('isCoverListExpand', _ => {
+      this.forceUpdate()
+    })
   }
 
   render() {
@@ -65,7 +55,22 @@ export default class Grid extends Component {
             paddingBottom: 10
           }}
         />
-        { Overlay }
+        {
+          (global.isCoverListExpand)
+          ? (
+              <Image
+                style={ style.fullScreen }
+              >
+                <BlurView
+                  blurType="dark"
+                  blurAmount={ 5 }
+                  style={ style.fullScreen }
+                >
+                </BlurView>
+              </Image>
+            )
+          : ( null )
+        }
       </View>
     )
   }

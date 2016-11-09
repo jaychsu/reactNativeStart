@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   Text,
   View,
+  StatusBar,
   TouchableHighlight
 } from 'react-native'
 import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter'
@@ -11,6 +12,7 @@ export default class Header extends Component {
   render() {
     return (
       <View style={ style.header }>
+        <StatusBar hidden={ true } />
         <View style={ style.navigator }>
           <Text style={ style.content }>C</Text>
           <TouchableHighlight

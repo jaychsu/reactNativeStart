@@ -6,6 +6,7 @@ import {
   ListView,
   TouchableHighlight
 } from 'react-native'
+import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter'
 import ImgSource from './asset/img-source'
 import style, { gridStyle } from './style'
 
@@ -25,28 +26,34 @@ export default class CoverList extends Component {
     this.state = {
       dataSource: ds.cloneWithRows(this._genRows())
     }
+
+    RCTDeviceEventEmitter.addListener('isCoverListExpand', _ => {
+      this.forceUpdate()
+    })
   }
 
   render() {
-    return (
-      <View style={{
-        height: 100
-      }}>
-        <ListView
-          dataSource={ this.state.dataSource }
-          renderRow={ this._renderRow }
-          horizontal={ true }
+    return (global.isCoverListExpand)
+    ? (
+        <View style={{
+          height: 100
+        }}>
+          <ListView
+            dataSource={ this.state.dataSource }
+            renderRow={ this._renderRow }
+            horizontal={ true }
 
-          initialListSize={ 300 }
-          pageSize={ 200 }
-          contentContainerStyle={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start'
-          }}
-        />
-      </View>
-    )
+            initialListSize={ 300 }
+            pageSize={ 200 }
+            contentContainerStyle={{
+              flexDirection: 'row',
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start'
+            }}
+          />
+        </View>
+      )
+    : ( null )
   }
 
   _renderRow(rowData: string, sectionID: number, rowID: number) {

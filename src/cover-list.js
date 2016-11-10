@@ -4,7 +4,8 @@ import {
   Image,
   View,
   ListView,
-  TouchableHighlight
+  TouchableHighlight,
+  LayoutAnimation
 } from 'react-native'
 import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter'
 import ImgSource from './asset/img-source'
@@ -29,6 +30,10 @@ export default class CoverList extends Component {
     RCTDeviceEventEmitter.addListener('isCoverListExpand', _ => {
       this.forceUpdate()
     })
+  }
+
+  componentWillUpdate() {
+    LayoutAnimation.easeInEaseOut()
   }
 
   render() {

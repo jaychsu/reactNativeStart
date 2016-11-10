@@ -4,7 +4,8 @@ import {
   Image,
   View,
   ListView,
-  TouchableHighlight
+  TouchableHighlight,
+  LayoutAnimation
 } from 'react-native'
 import RCTDeviceEventEmitter from 'RCTDeviceEventEmitter'
 import { BlurView, VibrancyView } from 'react-native-blur'
@@ -30,6 +31,10 @@ export default class Grid extends Component {
     RCTDeviceEventEmitter.addListener('isCoverListExpand', _ => {
       this.forceUpdate()
     })
+  }
+
+  componentWillUpdate() {
+    LayoutAnimation.easeInEaseOut()
   }
 
   render() {

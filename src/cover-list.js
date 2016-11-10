@@ -37,27 +37,28 @@ export default class CoverList extends Component {
   }
 
   render() {
-    return (global.isCoverListExpand)
-    ? (
-        <View style={{
-          height: 100
-        }}>
-          <ListView
-            dataSource={ this.state.dataSource }
-            renderRow={ this._renderRow }
-            horizontal={ true }
+    return (
+      <View style={{
+        position: 'relative',
+        height: global.isCoverListExpand ? 100 : 0
+      }}>
+        <ListView
+          dataSource={ this.state.dataSource }
+          renderRow={ this._renderRow }
+          horizontal={ true }
 
-            initialListSize={ 300 }
-            pageSize={ 200 }
-            contentContainerStyle={{
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-              alignItems: 'flex-start'
-            }}
-          />
-        </View>
-      )
-    : ( null )
+          initialListSize={ 300 }
+          pageSize={ 200 }
+          contentContainerStyle={{
+            position: 'absolute',
+            bottom: 0,
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start'
+          }}
+        />
+      </View>
+    )
   }
 
   _renderRow(rowData: string, sectionID: number, rowID: number) {

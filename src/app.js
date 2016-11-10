@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {
   Text,
-  View
+  View,
+  Platform,
+  UIManager
 } from 'react-native'
 import style from './style'
 
@@ -11,6 +13,15 @@ import Grid from './grid'
 import Footer from './footer'
 
 export default class App extends Component {
+  constructor() {
+    super()
+
+    // Enable LayoutAnimation under Android
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental(true)
+    }
+  }
+
   render() {
     return (
       <View style={{

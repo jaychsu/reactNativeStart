@@ -21,7 +21,7 @@ export default class Grid extends Component {
     this._renderRow = this._renderRow.bind(this)
     this._pressRow = this._pressRow.bind(this)
     this._genRows = this._genRows.bind(this)
-    this._triggerLayoutAnimation.bind(this)
+    this._triggerLayoutAnimation = this._triggerLayoutAnimation.bind(this)
 
     this.state = {}
     this.selectedRow = {}

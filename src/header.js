@@ -17,9 +17,13 @@ export default class Header extends Component {
           <Text style={ style.content }>C</Text>
           <TouchableHighlight
             style={{
-              paddingLeft: 10,
-              paddingRight: 10,
-              height: 30
+              paddingLeft: 20,
+              paddingRight: 20,
+              height: 30,
+
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
             onPress={_ => {
               global.isCoverListExpand = !global.isCoverListExpand

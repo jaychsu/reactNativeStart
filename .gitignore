@@ -41,4 +41,3 @@ android/app/libs
 android/keystores/debug.keystore
 
 src/asset/*.tif
-src/asset/*.jpg

@@ -16,6 +16,11 @@ export default class Header extends Component {
         <View style={ style.navigator }>
           <Text style={ style.content }>C</Text>
           <TouchableHighlight
+            style={{
+              paddingLeft: 10,
+              paddingRight: 10,
+              height: 30
+            }}
             onPress={_ => {
               global.isCoverListExpand = !global.isCoverListExpand
               RCTDeviceEventEmitter.emit('isCoverListExpand')

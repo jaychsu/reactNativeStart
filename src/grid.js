@@ -41,6 +41,7 @@ export default class Grid extends Component {
   render() {
     return (
       <View style={{
+        height: global.isCoverListExpand ? 600 : 0,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'

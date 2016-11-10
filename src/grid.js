@@ -21,6 +21,7 @@ export default class Grid extends Component {
     this._renderRow = this._renderRow.bind(this)
     this._pressRow = this._pressRow.bind(this)
     this._genRows = this._genRows.bind(this)
+    this._triggerLayoutAnimation.bind(this)
 
     this.state = {}
     this.selectedRow = {}
@@ -33,7 +34,7 @@ export default class Grid extends Component {
     })
   }
 
-  componentWillUpdate() {
+  _triggerLayoutAnimation() {
     LayoutAnimation.easeInEaseOut()
   }
 
@@ -62,16 +63,21 @@ export default class Grid extends Component {
         {
           (global.isCoverListExpand)
           ? (
-              <Image
+              <View
                 style={ style.fullScreen }
+                onLayout={ this._triggerLayoutAnimation }
               >
-                <BlurView
-                  blurType="dark"
-                  blurAmount={ 5 }
-                  style={ style.fullScreen }
+                <Image
+                  style={{ flex: 1 }}
                 >
-                </BlurView>
-              </Image>
+                  <BlurView
+                    blurType="dark"
+                    blurAmount={ 5 }
+                    style={{ flex: 1 }}
+                  >
+                  </BlurView>
+                </Image>
+              </View>
             )
           : ( null )
         }

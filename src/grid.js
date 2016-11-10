@@ -21,12 +21,11 @@ export default class Grid extends Component {
     this._pressRow = this._pressRow.bind(this)
     this._genRows = this._genRows.bind(this)
 
+    this.state = {}
     this.selectedRow = {}
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-    this.state = {
-      dataSource: ds.cloneWithRows(this._genRows())
-    }
+    this.state.dataSource = ds.cloneWithRows(this._genRows())
 
     RCTDeviceEventEmitter.addListener('isCoverListExpand', _ => {
       this.forceUpdate()

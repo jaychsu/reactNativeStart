@@ -58,7 +58,9 @@ export default class Grid extends Component {
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             paddingTop: 10,
-            paddingBottom: 10
+            paddingBottom: 10,
+            paddingLeft: 30,
+            paddingRight: 30
           }}
         />
         {

@@ -43,7 +43,14 @@ function getGridStyle() {
   const { width } = Dimensions.get('window')
   if ( width >= 1000 ) {
     return StyleSheet.create({
-      cell: {},
+      cell: {
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+
+        borderWidth: 0,
+      },
       cellPress: {
         paddingLeft: 4,
         paddingRight: 4,
@@ -67,7 +74,14 @@ function getGridStyle() {
     })
   } else {
     return StyleSheet.create({
-      cell: {},
+      cell: {
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+
+        borderWidth: 0,
+      },
       cellPress: {
         paddingLeft: 2,
         paddingRight: 2,

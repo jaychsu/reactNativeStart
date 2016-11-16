@@ -11,6 +11,9 @@ export default class GridItem extends Component {
   constructor() {
     super()
 
+    this._pressItem = this._pressItem.bind(this)
+    this._updateNativeStyles = this._updateNativeStyles.bind(this)
+
     this.isSelected = false
     this.isDraggable = false
   }
@@ -18,6 +21,7 @@ export default class GridItem extends Component {
   render () {
     return (
       <TouchableHighlight
+        onPress={ _ => this._pressItem() }
         underlayColor="transparent"
       >
         <View style={{
@@ -29,8 +33,16 @@ export default class GridItem extends Component {
           paddingTop: 4,
           paddingBottom: 4
         }}>
-          <View style={ gridStyle.cell }>
+          <View
+            ref={ gridItem => {
+              this.gridItem = gridItem
+            }}
+            style={ gridStyle.cell }
+          >
             <Image
+              ref={ gridImg => {
+                this.gridImg = gridImg
+              }}
               style={ gridStyle.img }
               source={ this.props.source }
             />
@@ -42,5 +54,26 @@ export default class GridItem extends Component {
         </View>
       </TouchableHighlight>
     )
+  }
+
+  _pressItem() {
+    this.isSelected = !this.isSelected
+
+    if ( this.isSelected ) {
+      this._updateNativeStyles({
+        gridItem: { style: gridStyle.cellPress },
+        gridImg: { style: gridStyle.imgPress }
+      })
+    } else {
+      this._updateNativeStyles({
+        gridItem: { style: gridStyle.cell },
+        gridImg: { style: gridStyle.img }
+      })
+    }
+  }
+
+  _updateNativeStyles(styles) {
+    this.gridItem && this.gridItem.setNativeProps(styles.gridItem)
+    this.gridImg && this.gridImg.setNativeProps(styles.gridImg)
   }
 }

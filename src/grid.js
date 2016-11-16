@@ -17,6 +17,7 @@ export default class Grid extends Component {
   constructor() {
     super()
 
+    this._renderBlurView = this._renderBlurView.bind(this)
     this._triggerLayoutAnimation = this._triggerLayoutAnimation.bind(this)
 
     this.state = {}
@@ -63,28 +64,30 @@ export default class Grid extends Component {
             paddingRight: 30
           }}
         />
-        {
-          (global.isCoverListExpand)
-          ? (
-              <View
-                style={ style.fullScreen }
-                onLayout={ this._triggerLayoutAnimation }
-              >
-                <Image
-                  style={{ flex: 1 }}
-                >
-                  <BlurView
-                    blurType="dark"
-                    blurAmount={ 5 }
-                    style={{ flex: 1 }}
-                  >
-                  </BlurView>
-                </Image>
-              </View>
-            )
-          : ( null )
-        }
+        { this._renderBlurView() }
       </View>
     )
+  }
+
+  _renderBlurView() {
+    (global.isCoverListExpand)
+    ? (
+        <View
+          style={ style.fullScreen }
+          onLayout={ this._triggerLayoutAnimation }
+        >
+          <Image
+            style={{ flex: 1 }}
+          >
+            <BlurView
+              blurType="dark"
+              blurAmount={ 5 }
+              style={{ flex: 1 }}
+            >
+            </BlurView>
+          </Image>
+        </View>
+      )
+    : ( null )
   }
 }

@@ -17,15 +17,12 @@ export default class Grid extends Component {
   constructor() {
     super()
 
-    this._renderRow = this._renderRow.bind(this)
-    this._genRows = this._genRows.bind(this)
     this._triggerLayoutAnimation = this._triggerLayoutAnimation.bind(this)
 
     this.state = {}
-    this.selectedRow = {}
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-    this.state.dataSource = ds.cloneWithRows(this._genRows())
+    this.state.dataSource = ds.cloneWithRows(contentSource.thumbs)
 
     RCTDeviceEventEmitter.addListener('isCoverListExpand', _ => {
       this.forceUpdate()
@@ -46,7 +43,12 @@ export default class Grid extends Component {
       }}>
         <ListView
           dataSource={ this.state.dataSource }
-          renderRow={ this._renderRow }
+          renderRow={(rowData: string, sectionID: number, rowID: number) => (
+            <GridItem
+              source={ contentSource.getThumbSrc(rowID) }
+              text={ rowID }
+            />
+          )}
 
           initialListSize={ 300 }
           pageSize={ 200 }
@@ -84,20 +86,5 @@ export default class Grid extends Component {
         }
       </View>
     )
-  }
-
-  _renderRow(rowData: string, sectionID: number, rowID: number) {
-    return (
-      <GridItem
-        source={ contentSource.getThumbSrc(rowID) }
-        text={ rowID }
-      />
-    )
-  }
-
-  _genRows(): Array<boolean> {
-    return contentSource.thumbs.map((val, key) => {
-      return this.selectedRow[key]
-    })
   }
 }

@@ -1,7 +1,7 @@
 import HttpImgSource from './http-img'
 import LocalImgSource from './local-img'
 
-const BaseSource = HttpImgSource
+const BaseSource = LocalImgSource
 
 class ImgSource extends BaseSource {
   constructor(thumbsLength) {

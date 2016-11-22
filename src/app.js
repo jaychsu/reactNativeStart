@@ -9,7 +9,7 @@ import style from './style'
 
 import Header from './header'
 import CoverList from './cover-list'
-import Grid from './grid'
+import Gesture from './gesture'
 import Footer from './footer'
 
 export default class App extends Component {
@@ -35,7 +35,7 @@ export default class App extends Component {
         }}>
           <Header />
           <CoverList />
-          <Grid />
+          <Gesture />
           <Footer />
         </View>
       </View>

@@ -6,5 +6,7 @@ import {
 export default class GriddyDraggableItem extends Component {
   constructor() {
     super()
+
+    this.state = {}
   }
 }

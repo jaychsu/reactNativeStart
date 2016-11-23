@@ -8,9 +8,9 @@ import {
 import style from './style'
 
 import Header from './header'
-import CoverList from './cover-list'
-import Gesture from './gesture'
 import Footer from './footer'
+
+import Griddy from './griddy/griddy'
 
 export default class App extends Component {
   constructor() {
@@ -34,8 +34,7 @@ export default class App extends Component {
           alignItems: 'stretch'
         }}>
           <Header />
-          <CoverList />
-          <Gesture />
+          <Griddy />
           <Footer />
         </View>
       </View>

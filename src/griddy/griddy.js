@@ -12,9 +12,13 @@ export default class Griddy extends Component {
     super()
 
     /**
-     * props {
-     *   data
-     *   sorter
+     * props: {
+     *   data: {
+     *     // TODO: support folder view - type, childLength
+     *     thumbnail: string
+     *     title: string
+     *   }
+     *   sorter: []
      * }
      */
 
@@ -39,9 +43,8 @@ export default class Griddy extends Component {
           dataSource={ dataSource }
           renderRow={(rowData: string, sectionID: number, rowID: number) => (
             <GriddyItem
-              { ...this.props }
-
-              data={ rowData }
+              thumbnail={ rowData.thumbnail }
+              title={ rowData.title }
             />
           )}
           initialListSize={ 100 }

@@ -10,7 +10,10 @@ import style from './style'
 import Header from './header'
 import Footer from './footer'
 
+import MockData from './asset/mock-data'
 import Griddy from './griddy/griddy'
+
+let mockData = new MockData(100)
 
 export default class App extends Component {
   constructor() {
@@ -34,7 +37,10 @@ export default class App extends Component {
           alignItems: 'stretch'
         }}>
           <Header />
-          <Griddy />
+          <Griddy
+            data={mockData.data}
+            sorter={mockData.sorter}
+          />
           <Footer />
         </View>
       </View>

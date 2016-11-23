@@ -9,6 +9,8 @@ export default class MockData extends BaseSource {
   constructor(dataLength) {
     super()
 
+    this.move = this.move.bind(this)
+
     this.data = {}
     this.sorter = []
     this.dataLength = dataLength
@@ -16,7 +18,7 @@ export default class MockData extends BaseSource {
     for (let i = 0; i < this.dataLength; i++) {
       let randomImgIndex = Math.floor(Math.random() * this.srcs.length)
       this.data[i] = {
-        thumbnail: this.srcs[randomImgIndex],
+        thumbnail: this.getUri(this.srcs[randomImgIndex]),
         title: `Image ${i}`
       }
       this.sorter.push(i)

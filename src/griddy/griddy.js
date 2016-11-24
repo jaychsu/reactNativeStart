@@ -17,6 +17,7 @@ export default class Griddy extends Component {
      *     // TODO: support folder view - type, childLength
      *     thumbnail: string
      *     title: string
+     *     isSelected: boolean
      *   }
      *   sorter: []
      * }

@@ -19,7 +19,8 @@ export default class MockData extends BaseSource {
       let randomImgIndex = Math.floor(Math.random() * this.srcs.length)
       this.data[i] = {
         thumbnail: this.getUri(this.srcs[randomImgIndex]),
-        title: `Image ${i}`
+        title: `Image ${i}`,
+        isSelected: false
       }
       this.sorter.push(i)
     }

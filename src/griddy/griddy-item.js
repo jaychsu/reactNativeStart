@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 
 export default class GriddyItem extends Component {
-  constructor() {
+  constructor(props) {
     super()
 
     this.state = {}
@@ -16,6 +16,7 @@ export default class GriddyItem extends Component {
   render() {
     return (
       <TouchableHighlight
+        onLongPress={ this.props.onLongPress }
         underlayColor="transparent"
       >
         <View

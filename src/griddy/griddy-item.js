@@ -11,12 +11,14 @@ export default class GriddyItem extends Component {
     super()
 
     this.state = {}
+    this.isSelected = props.isSelected
   }
 
   render() {
     return (
       <TouchableHighlight
         onLongPress={ this.props.onLongPress }
+        onPress={ this.props.onPress }
         underlayColor="transparent"
       >
         <View
@@ -34,7 +36,8 @@ export default class GriddyItem extends Component {
             source={ this.props.thumbnail }
             style={{
               width: 64,
-              height: 64
+              height: 64,
+              borderRadius: 2
             }}
           />
           <Text

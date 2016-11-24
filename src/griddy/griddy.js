@@ -28,6 +28,7 @@ export default class Griddy extends Component {
     this._renderListRow = this._renderListRow.bind(this)
 
     this.state = {}
+    this.state.active = false // Active to Multi-Select
     this.state.data = props.data
     this.state.sorter = props.sorter
 
@@ -70,6 +71,12 @@ export default class Griddy extends Component {
         { ...rowData }
 
         onLongPress={ _ => {
+          // Activate Multl-Select
+          // ======
+          // if (this.state.active) return
+          // this.state.active = true
+        }}
+        onPress={ _ => {
           rowData.isSelected = !rowData.isSelected
         }}
       />

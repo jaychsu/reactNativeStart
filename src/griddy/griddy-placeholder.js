@@ -5,7 +5,7 @@ import {
   Image
 } from 'react-native'
 
-export default class GriddyDraggableItem extends Component {
+export default class GriddyPlaceholder extends Component {
   constructor(props) {
     super()
 

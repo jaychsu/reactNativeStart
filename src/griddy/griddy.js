@@ -7,7 +7,6 @@ import {
 } from 'react-native'
 
 import GriddyItem from './griddy-item'
-import GriddyDraggableItem from './griddy-draggable-item'
 
 export default class Griddy extends Component {
   constructor(props) {
@@ -32,7 +31,9 @@ export default class Griddy extends Component {
     this.state.data = props.data
     this.state.sorter = props.sorter
 
-    this.state.dataSource = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
+    this.state.dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    })
   }
 
   render() {

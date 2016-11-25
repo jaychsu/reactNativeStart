@@ -8,9 +8,12 @@ import {
 import style from './style'
 
 import Header from './header'
-import CoverList from './cover-list'
-import Grid from './grid'
 import Footer from './footer'
+
+import MockData from './asset/mock-data'
+import Griddy from './griddy/griddy'
+
+let mockData = new MockData(100)
 
 export default class App extends Component {
   constructor() {
@@ -34,8 +37,10 @@ export default class App extends Component {
           alignItems: 'stretch'
         }}>
           <Header />
-          <CoverList />
-          <Grid />
+          <Griddy
+            data={mockData.data}
+            sorter={mockData.sorter}
+          />
           <Footer />
         </View>
       </View>

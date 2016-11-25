@@ -3,7 +3,7 @@ import LocalImgSource from './local-img'
 
 const BaseSource = LocalImgSource
 
-class ImgSource extends BaseSource {
+export default class ImgSource extends BaseSource {
   constructor(thumbsLength) {
     super()
 
@@ -22,5 +22,3 @@ class ImgSource extends BaseSource {
     return this.getUri(this.thumbs[index])
   }
 }
-
-export default ImgSource

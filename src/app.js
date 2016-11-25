@@ -13,7 +13,7 @@ import Footer from './footer'
 import MockData from './asset/mock-data'
 import Griddy from './griddy/griddy'
 
-let mockData = new MockData(100)
+let mockData = new MockData(10)
 
 export default class App extends Component {
   constructor() {

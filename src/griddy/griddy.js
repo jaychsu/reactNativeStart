@@ -71,15 +71,8 @@ export default class Griddy extends Component {
         { ...this.props }
         { ...rowData }
 
-        onLongPress={ _ => {
-          // Activate Multl-Select
-          // ======
-          // if (this.state.active) return
-          // this.state.active = true
-        }}
-        onPress={ _ => {
-          rowData.isSelected = !rowData.isSelected
-        }}
+        onLongPress={ e => {}}
+        onPress={ e => {}}
       />
     )
   }

@@ -11,14 +11,21 @@ export default class GriddyItem extends Component {
     super()
 
     this.state = {}
-    this.isSelected = props.isSelected
+    this.state.layout = {}
+    this.state.isSelected = props.isSelected
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.isSelected !== nextState.isSelected) return true
+    return false
   }
 
   render() {
     return (
       <TouchableHighlight
+        onLayout={ e => this.state.layout = e.nativeEvent.layout }
         onLongPress={ this.props.onLongPress }
-        onPress={ this.props.onPress }
+        onPress={ e => this.setState({ isSelected: !this.state.isSelected }) }
         underlayColor="transparent"
       >
         <View

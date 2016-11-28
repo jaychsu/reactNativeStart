@@ -62,6 +62,9 @@ export default class GriddyItem extends Component {
       >
         <TouchableHighlight
           underlayColor="transparent"
+          onPress={ e => {
+            this.props.moveRow(this.props.index, 20)
+          }}
         >
           <View
             style={{

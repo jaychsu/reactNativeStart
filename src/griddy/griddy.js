@@ -5,6 +5,7 @@ import {
   ListView,
   LayoutAnimation
 } from 'react-native'
+import { arrItemMove } from '../util'
 
 import GriddyItem from './griddy-item'
 
@@ -25,6 +26,7 @@ export default class Griddy extends Component {
      */
 
     this._renderListRow = this._renderListRow.bind(this)
+    this.moveRow = this.moveRow.bind(this)
 
     this.state = {}
     this.state.active = false // Active to Multi-Select
@@ -67,14 +69,23 @@ export default class Griddy extends Component {
     )
   }
 
-  _renderListRow(rowData: string, sectionID: number, rowID: number) {
+  moveRow(from: number, to: number) {
+    let copiedSorter = this.state.sorter.slice()
+    arrItemMove(copiedSorter, from, to)
+    this.setState({ sorter: copiedSorter })
+    this.forceUpdate()
+    return this.state.sorter
+  }
+
+  _renderListRow(rowData: string, section: number, index: number) {
     return (
       <GriddyItem
         { ...this.props }
         { ...rowData }
 
-        onLongPress={ e => {}}
-        onPress={ e => {}}
+        // Can't get new index now after move once
+        index={ index }
+        moveRow={ this.moveRow }
       />
     )
   }

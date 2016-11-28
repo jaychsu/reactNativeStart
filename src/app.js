@@ -38,8 +38,8 @@ export default class App extends Component {
         }}>
           <Header />
           <Griddy
-            data={mockData.data}
-            sorter={mockData.sorter}
+            data={ mockData.data }
+            sorter={ mockData.sorter }
           />
           <Footer />
         </View>

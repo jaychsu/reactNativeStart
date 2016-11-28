@@ -12,6 +12,8 @@ export default class GriddyItem extends Component {
   constructor(props) {
     super()
 
+    this.handleOnLayout = this.handleOnLayout.bind(this)
+
     this.state = {}
     this.state.layout = {}
     this.state.isSelected = props.isSelected
@@ -21,6 +23,7 @@ export default class GriddyItem extends Component {
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: _ => true,
       onMoveShouldSetPanResponder: _ => true,
+      onPanResponderGrant: this.handlePanResponderStart.bind(this),
       onPanResponderStart: this.handlePanResponderStart.bind(this),
       onPanResponderMove: Animated.event([
         null,
@@ -51,13 +54,13 @@ export default class GriddyItem extends Component {
     return (
       <Animated.View
         { ...this.panResponder.panHandlers }
+        onLayout={ this.handleOnLayout }
         style={[
           this.state.isSelected ? { position: 'absolute' } : null,
           this.state.pan.getLayout()
         ]}
       >
         <TouchableHighlight
-          onLayout={ e => this.state.layout = e.nativeEvent.layout }
           underlayColor="transparent"
         >
           <View
@@ -88,6 +91,11 @@ export default class GriddyItem extends Component {
         </TouchableHighlight>
       </Animated.View>
     )
+  }
+
+  handleOnLayout(e) {
+    this.state.layout = e.nativeEvent.layout
+    // console.log(JSON.parse(JSON.stringify(e.nativeEvent.layout)))
   }
 
   handlePanResponderStart(e, gesture) {

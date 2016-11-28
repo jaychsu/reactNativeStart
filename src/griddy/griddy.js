@@ -28,8 +28,8 @@ export default class Griddy extends Component {
 
     this.state = {}
     this.state.active = false // Active to Multi-Select
-    this.state.data = props.data
-    this.state.sorter = props.sorter
+    this.state.data = props.data || {}
+    this.state.sorter = props.sorter || []
 
     this.state.dataSource = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
@@ -49,6 +49,8 @@ export default class Griddy extends Component {
       >
         <ListView
           { ...this.props }
+
+          scrollEnabled={ false }
 
           dataSource={ dataSource }
           renderRow={ this._renderListRow }
